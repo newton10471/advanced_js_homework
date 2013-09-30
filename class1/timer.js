@@ -1,17 +1,14 @@
 var timeleft = 10; 
+var intervalID;
 
 function echotimeleft() {
   console.log(timeleft + "\n");
   timeleft--;
+  if (timeleft < 0) clearInterval(intervalID);
 }
 
 function countdown(seconds){
-  window.setInterval(echotimeleft, 1000);
-  //for(timeleft = seconds; timeleft > 0 ; timeleft--) {
-  //echotime();
-  //  window.setTimeout(echotimeleft(), 1000);
-  //}
+  intervalID = window.setInterval(echotimeleft, seconds * 100);
 }
 
 countdown(10);
-console.log('done');
