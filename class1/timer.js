@@ -1,14 +1,16 @@
-var timeleft; 
+var timeleft = 10; 
 
 function echotimeleft() {
   console.log(timeleft + "\n");
+  timeleft--;
 }
 
 function countdown(seconds){
-  for(timeleft = seconds; timeleft > 0 ; timeleft--) {
+  window.setInterval(echotimeleft, 1000);
+  //for(timeleft = seconds; timeleft > 0 ; timeleft--) {
   //echotime();
-    window.setTimeout(echotimeleft(), 1000);
-  }
+  //  window.setTimeout(echotimeleft(), 1000);
+  //}
 }
 
 countdown(10);
