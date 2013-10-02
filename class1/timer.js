@@ -1,4 +1,4 @@
-var timeleft = 10; 
+var timeleft;
 var intervalID;
 
 function echotimeleft() {
@@ -8,6 +8,7 @@ function echotimeleft() {
 }
 
 function countdown(seconds){
+  timeleft = seconds;
   intervalID = window.setInterval(echotimeleft, seconds * 100);
 }
 
