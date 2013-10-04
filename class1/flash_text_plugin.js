@@ -2,9 +2,9 @@ $.fn.blink = function(interval) {
 	that = this;
 	setInterval(function () {
 	  that.toggle(function() {
-      that.css("color", "white");
+      that.css("visibility", "hidden");
     }, function () {
-      that.css("color", "black");
+      that.css("visibility", "visible");
     });
 	}, interval);
 }
