@@ -1,17 +1,12 @@
 $.fn.blink = function(interval) {
-	that = this;
+	blinkText = this;
 	setInterval(function () {
-	  that.toggle(function() {
-      that.css("visibility", "hidden");
+	  blinkText.toggle(function() {
+      blinkText.css("display", "hidden");
     }, function () {
-      that.css("visibility", "visible");
+      blinkText.css("display", "inline");
     });
 	}, interval);
 }
 
-//$.fn.greenify = function() {
-//  this.css( "color", "green" );
-//};
-
-// $(".myDiv").greenify(); 
 $(".myDiv").blink(1000);
