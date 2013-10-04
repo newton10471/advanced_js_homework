@@ -4,4 +4,9 @@ $.fn.blink = function(interval) {
 	}, interval);
 }
 
-$(".testclass").blink(1000);
+$.fn.greenify = function() {
+  this.css( "color", "green" );
+};
+
+$(".myDiv").greenify(); 
+$(".myDiv").blink(1000);
