@@ -1,12 +1,17 @@
 $.fn.blink = function(interval) {
-	setInterval(function blinkFunction() {
-	  // do the blinking
+	that = this;
+	setInterval(function () {
+	  that.toggle(function() {
+      that.css("color", "white");
+    }, function () {
+      that.css("color", "black");
+    });
 	}, interval);
 }
 
-$.fn.greenify = function() {
-  this.css( "color", "green" );
-};
+//$.fn.greenify = function() {
+//  this.css( "color", "green" );
+//};
 
-$(".myDiv").greenify(); 
+// $(".myDiv").greenify(); 
 $(".myDiv").blink(1000);
