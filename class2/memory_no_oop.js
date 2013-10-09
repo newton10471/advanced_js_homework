@@ -8,7 +8,6 @@ $(document).ready(function() {
     });
     $('.box').text("");
     $('.box').addClass("open");
-    pickcells(colors);
   }
 
   var checkWin = function(){
