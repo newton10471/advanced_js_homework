@@ -1,5 +1,11 @@
 $(document).ready(function() {
 	var Board = function() {
+	
+		this.initialize = function() {
+			$("#reset").click(function() { 
+    		this.reset();
+  		});
+		};
 
 		this.reset = function(){
     	var colors = ['red', 'blue', 'green', 'yellow'];
@@ -24,12 +30,13 @@ $(document).ready(function() {
 
 	};
 
-	var board = new Board();
-  
-  $("#reset").click(function() { 
-    board.reset();
-  });
+	var Box = function() {
+	};
 
+	var board = new Board();
+	board.initialize();
+  
+  
   $(".box").click(function() {
     $('.box').each(function(){$(this).removeClass('red blue green yellow')});
     $(this).addClass($(this).data('color'));
