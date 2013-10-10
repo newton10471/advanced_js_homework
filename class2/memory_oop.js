@@ -31,36 +31,38 @@ $(document).ready(function() {
 	};
 
 	var Box = function() {
+		this.initialize = function() {
+
+			$(".box").click(function() {
+    		$('.box').each(function(){$(this).removeClass('red blue green yellow')});
+    		$(this).addClass($(this).data('color'));
+    		if( $(this).attr('id') != $('#result').data('click_id') && $(this).data('color') === $('#result').data('last_click')) {
+      		alert("Match!");
+      		$(this).text("done");
+      		$(this).removeClass('open');
+      		var last_id = $('#result').data('click_id');
+      		$("#" + last_id ).text('done');
+      		$("#" + last_id ).removeClass('open');
+      		$('#result').data('last_click', null);
+      		board.checkIfWon();
+    		}
+    		else {
+      		$('#result').data('last_click', $(this).data('color'));
+      		$('#result').data('click_id', $(this).attr('id'));
+    		};
+        
+    		var removeColor = function() {
+      		$(this).removeClass($(this).data('color'));
+    		};
+        
+    		setInterval(removeColor.bind(this), 2000);
+  		});
+		};
 	};
 
 	var board = new Board();
+	var box = new Box();
 	board.initialize();
-  
-  
-  $(".box").click(function() {
-    $('.box').each(function(){$(this).removeClass('red blue green yellow')});
-    $(this).addClass($(this).data('color'));
-    if( $(this).attr('id') != $('#result').data('click_id') && $(this).data('color') === $('#result').data('last_click')) {
-      alert("Match!");
-      $(this).text("done");
-      $(this).removeClass('open');
-      var last_id = $('#result').data('click_id');
-      $("#" + last_id ).text('done');
-      $("#" + last_id ).removeClass('open');
-      $('#result').data('last_click', null);
-      board.checkIfWon();
-    }
-    else {
-      $('#result').data('last_click', $(this).data('color'));
-      $('#result').data('click_id', $(this).attr('id'));
-    };
-        
-    var removeColor = function() {
-      $(this).removeClass($(this).data('color'));
-    };
-        
-    setInterval(removeColor.bind(this), 2000);
-  });
-
+	box.initialize();
   board.reset();
 });
