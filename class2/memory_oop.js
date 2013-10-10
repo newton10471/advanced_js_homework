@@ -23,7 +23,7 @@ $(document).ready(function() {
       	openList.push($(this).data('color'));      
     	});
         
-    	if (openList.length === $.unique( openList ).length) {
+    	if (openList.length === $.unique(openList).length) {
       	alert("No more matches. You win!");
     	};
   	};
@@ -41,8 +41,8 @@ $(document).ready(function() {
       		$(this).text("done");
       		$(this).removeClass('open');
       		var last_id = $('#result').data('click_id');
-      		$("#" + last_id ).text('done');
-      		$("#" + last_id ).removeClass('open');
+      		$("#" + last_id).text('done');
+      		$("#" + last_id).removeClass('open');
       		$('#result').data('last_click', null);
       		board.checkIfWon();
     		}
@@ -64,5 +64,5 @@ $(document).ready(function() {
 	var box = new Box();
 	board.initialize();
 	box.initialize();
-  board.reset();
+  // board.reset();
 });
