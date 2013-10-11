@@ -30,10 +30,12 @@ $(document).ready(function() {
 
 	};
 
-	var Box = function() {
+	var Box = function(board) {
 		this.initialize = function() {
 
+			// set up click handler for .box class in the html
 			$(".box").click(function() {
+				// clear all boxes and reset their color
     		$('.box').each(function(){$(this).removeClass('red blue green yellow')});
     		$(this).addClass($(this).data('color'));
     		if( $(this).attr('id') != $('#result').data('click_id') && $(this).data('color') === $('#result').data('last_click')) {
@@ -60,9 +62,9 @@ $(document).ready(function() {
 		};
 	};
 
-	var board = new Board();
-	var box = new Box();
-	board.initialize();
-	box.initialize();
+	var myBoard = new Board();
+	var myBox = new Box(myBoard);
+	myBoard.initialize();
+	myBox.initialize();
   // board.reset();
 });
