@@ -1,8 +1,10 @@
 	var Board = function() {
 	
+		that = this;
+
 		this.initialize = function() {
 			$("#reset").click(function() { 
-    		this.reset();
+    		that.reset();
   		});
 		};
 
