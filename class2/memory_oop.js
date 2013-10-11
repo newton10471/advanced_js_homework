@@ -1,4 +1,3 @@
-$(document).ready(function() {
 	var Board = function() {
 	
 		this.initialize = function() {
@@ -62,6 +61,7 @@ $(document).ready(function() {
 		};
 	};
 
+$(document).ready(function() {
 	var myBoard = new Board();
 	var myBox = new Box(myBoard);
 	myBoard.initialize();
