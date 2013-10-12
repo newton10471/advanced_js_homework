@@ -1,6 +1,8 @@
-var Board = function() {
+var Board = function(boxes) {
 	
 	that = this;
+
+	this.boxes = boxes;
 
 	this.initialize = function() {
 		$("#reset").click(function() { 
@@ -34,9 +36,7 @@ var Board = function() {
 var Box = function(board) {
 	this.initialize = function() {
 
-	// set up click handler for .box class in the html
 	$(".box").click(function() {
-		// clear all boxes and reset their color
  		$('.box').each(function(){$(this).removeClass('red blue green yellow')});
  		$(this).addClass($(this).data('color'));
    		if( $(this).attr('id') != $('#result').data('click_id') && $(this).data('color') === $('#result').data('last_click')) {
@@ -64,7 +64,8 @@ var Box = function(board) {
 };
 
 $(document).ready(function() {
-	var myBoard = new Board();
+	myNumberOfBoxes = 9;
+	var myBoard = new Board(myNumberOfBoxes);
 	var myBox = new Box(myBoard);
 	myBoard.initialize();
 	myBox.initialize();

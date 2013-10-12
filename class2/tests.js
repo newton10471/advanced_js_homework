@@ -12,7 +12,7 @@ test("Box constructor returns Box object", function() {
 	ok(box.constructor == Box, "Passed!");
 });
 
-test("DOM elements with class .box are set to \"done\" at start", function() {
+test("DOM elements with class .box are set empty at start", function() {
   // ok( $('.box').regexp(open).count == 9 )
 	ok( $('.box').text() == "", "Passed!" );
 });
