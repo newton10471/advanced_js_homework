@@ -8,12 +8,13 @@ var Board = function(numberOfBoxes) {
 		$("#reset").click(function() { 
    		that.reset();
  		});
+ 		that.reset();
 	};
 
 	this.reset = function(){
    	var colors = ['red', 'blue', 'green', 'yellow'];
    	$(".box").each(function(){
-   	  var r_color = Math.ceil(Math.random()*4);
+   	  var r_color = Math.ceil(Math.random() * 4 - 1);
    	  $(this).data('color', colors[r_color]);   
    	});
    	$('.box').text("");
