@@ -1,8 +1,8 @@
-var Board = function(boxes) {
+var Board = function(numberOfBoxes) {
 	
 	that = this;
 
-	this.boxes = boxes;
+	this.numberOfBoxes = numberOfBoxes;
 
 	this.initialize = function() {
 		$("#reset").click(function() { 
