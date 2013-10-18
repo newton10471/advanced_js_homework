@@ -1,4 +1,23 @@
 function namespace(args) {
+  args = args.split('.');
+  this[args[0]] = {};
+  this[args[0]][args[1]] = {};
+  this[args[0]][args[1]][args[2]] = {};
+
+  // that = this;
+
+  // current = args[0];
+  // this[current] = {};
+
+
+  // for(var i = 0; i<args.length; i++) {
+  //   current = that[current];
+  //   current[args[i]] = {};
+  // };
+
+};
+
+function namespace_inclass(args) {
   
   var args = args.split(".");
   //console.log(eval(args[0]));
@@ -46,34 +65,33 @@ test( "hello test", function() {
   ok( 1 == "1", "Passed!" );
 });
 
-test("call namespace function", function() {
-  ok(namespace("app.models") === app.models, "Passed!");
- app = undefined;
+test("call namespace function with 1 level", function() {
+	namespace('app');
+	ok(app.View = function(){}, "Passed!");
+	app = undefined;
 });
 
-test("call namespace function", function() {
-  ok(namespace("app.view3") === app.view3, "Passed!");
+test("call namespace function with 2 levels", function() {
+	namespace('app.models');
+  ok(app.models.View = function(){}, "Passed!");
   app = undefined;
-
 });
 
-test("call namespace function", function() {
-  ok(namespace("app.view.ken.can.javascript") === app.view.ken.can.javascript, "Passed!");
+test("call namespace function with 3 levels", function() {
+  namespace('app.models.test');
+  ok(app.models.test.View = function(){}, "Passed!");
+  app = undefined;
+});
+
+test("call namespace function with 4 levels", function() {
+  namespace('app.models.test.again');
+  ok(app.models.test.again.View = function(){}, "Passed!");
   app = undefined;
 });
 
 test("don't override existing", function() {
-  namespace("app.view.ken");
-  app.view.ken.View = function(){}; 
-  namespace("app.view.matt");
-  ok(app.view);
+  namespace('app.models.test');
+  ok(namespace('app.models.test'), "Passed!");
   app = undefined;
 });
 
-test("don't override existing", function() {
-  namespace("app.view.ken");
-  app.view.ken.View = function(){}; 
-  namespace("app.view.matt");
-  ok(app.view.ken.View);
-  app = undefined;
-});
