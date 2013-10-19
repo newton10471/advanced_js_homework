@@ -68,30 +68,30 @@ test( "hello test", function() {
 test("call namespace function with 1 level", function() {
 	namespace('app');
 	ok(app.View = function(){}, "Passed!");
-	app = undefined;
+//	app = undefined;
 });
 
 test("call namespace function with 2 levels", function() {
 	namespace('app.models');
   ok(app.models.View = function(){}, "Passed!");
-  app = undefined;
+//  app = undefined;
 });
 
 test("call namespace function with 3 levels", function() {
   namespace('app.models.test');
   ok(app.models.test.View = function(){}, "Passed!");
-  app = undefined;
+//  app = undefined;
 });
 
 test("call namespace function with 4 levels", function() {
   namespace('app.models.test.again');
   ok(app.models.test.again.View = function(){}, "Passed!");
-  app = undefined;
+//  app = undefined;
 });
 
 test("don't override existing", function() {
   namespace('app.models.test');
   ok(namespace('app.models.test'), "Passed!");
-  app = undefined;
+//  app = undefined;
 });
 
