@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>AJAX example</title>
+    <style>
+    img {
+    width: 500px;
+    float: left;
+    }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+      // to run:
+      //   $ cd <this directory>
+      //   $ python -m SimpleHTTPServer
+      //   $ open http://localhost:8000/2-promise.html
+      //var promise = $.getJSON('example.json');
+
+      var promise = $.getJSON('http://scrapi.org/random');
+      chained = promise.then(function(data){
+        $("<img>").attr("src", data.image).appendTo("#metmuseum_image").load( function() {
+          alert("Your image loaded!  Congratulations!")});
+      })
+
+      
+       // $("<img>").load( function() {
+       //    alert("Your image loaded!  Congratulations!")});
+      
+    </script>
+  
+  </head>
+  <body>
+    Loading...
+    <div id="metmuseum_image">
+
+    </div>
+  </body>
+</html>
